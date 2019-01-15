@@ -1,0 +1,25 @@
+{
+	"defaultSeverity": "warning",
+	"extends": [
+		"tslint:latest"
+	],
+	"jsRules": {},
+	"rules": {
+		"eofline": false,
+		"indent": {
+			"options": "tabs"
+		},
+		"no-bitwise": false,
+		"no-empty": false,
+		"quotemark": {
+			"options": "single"
+		},
+		"semicolon": {
+			"options": "never"
+		},
+		"variable-name": {
+			"options": ["allow-leading-underscore"]
+		}
+	},
+	"rulesDirectory": []
+}
