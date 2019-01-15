@@ -5,6 +5,7 @@ const height = 256
 
 let context: CanvasRenderingContext2D
 let data: ImageData
+let draw!: (data: ImageData) => void
 
 async function start() {
 	const canvas = document.createElement('canvas')
@@ -14,13 +15,26 @@ async function start() {
 	document.body.appendChild(canvas)
 
 	context = canvas.getContext('2d')!
-	data = context.createImageData(width, height)
+	data = context.createImageData(width, height);
 
-	const { draw } = (await import('./checker.js'))
+	({ draw } = await import('./checker.js'))
 
-	draw(data)
+	animate(0)
+}
 
-	context.putImageData(data, 0, 0)
+let _previousDraw = ''
+
+async function animate(time: number) {
+	requestAnimationFrame(animate)
+
+	const _draw = draw.toString()
+
+	if (_previousDraw !== _draw) {
+		draw(data)
+		context.putImageData(data, 0, 0)
+
+		_previousDraw = _draw
+	}
 }
 
 document.addEventListener('DOMContentLoaded', async () => {

@@ -4,7 +4,7 @@
 	"description": "Computer Graphics Experiments",
 	"scripts": {
 		"watch": "tsc -w",
-		"serve": "lite-server"
+		"serve": "http-server -c-1"
 	},
 	"repository": {
 		"type": "git",

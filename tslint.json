@@ -10,6 +10,7 @@
 			"options": "tabs"
 		},
 		"no-bitwise": false,
+		"no-console": false,
 		"no-empty": false,
 		"quotemark": {
 			"options": "single"
